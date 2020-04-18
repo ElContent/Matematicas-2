@@ -27,7 +27,7 @@ while i < n
     x = Xr;
     Yr = eval(fun);
     Ea = abs((Xact-Xant)/Xact) * 100;
-    ds_i = fprintf('%4d %17.8g %17.8g %17.8g %17.8g %17.8g %17.8g 10.5g', i, a, b, Xr, Ya, Yb, Ea);
+    ds_i = fprintf('%4d %17.8g %17.8g %17.8g %17.8g %17.8g %17.8g 10.5g', i, a, b, Xr, u, v, Ea);
     disp(ds_i);
     
     if(Ya*Yr)<0
