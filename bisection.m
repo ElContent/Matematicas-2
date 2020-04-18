@@ -30,9 +30,9 @@ while i < n
     ds_i = fprintf('%4d %17.8g %17.8g %17.8g %17.8g %17.8g %17.8g 10.5g', i, a, b, Xr, u, v, Ea);
     disp(ds_i);
     
-    if(Ya*Yr)<0
+    if(u * Yr)<0
         b = Xr;
-    elseif (Ya*Yr)==0
+    elseif (u * Yr)==0
         fprintf('\n\n la raiz exacta es: %17.8g', Xr);
         fprintf('\n\n el numero de iteraciones fue %d', i);
         break
