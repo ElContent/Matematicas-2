@@ -1,6 +1,6 @@
-# ecuacionesmates
+# Ecuaciones Mates
  
-funcionamiento:
+Funcionamiento: \n
     funcionGeneral:
         jordi
     bisection:
