@@ -35,12 +35,13 @@ while selection_bool
         
         case 2
             % Método de la secante:
-            fprintf("Este método no ha sido implementado todavia \n");
+            fprintf("Este método no ha sido implementado todavia \n");    
             selection_bool = false;
         
         case 3
             % Método de la Regula Falsi:
-            fprintf("Este método no ha sido implementado todavia \n");
+            tol = input('Ingrese el valor de tolerancia: ');
+            regulafalsi(fun, a, b, tol ,error, n)
             selection_bool = false;
         
         case 4
@@ -54,9 +55,3 @@ while selection_bool
     end
     
 end
-
-
-
-
-
-
