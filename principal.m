@@ -1,57 +1,70 @@
 % Este el arranque del programa
 clear
 clc
-syms x y fun;
+syms x fun;
 
-% Pedimos al usuario que ingrese la funciÛn:
-fun = input('Ingrese la funciÛn: ');
+% Pedimos al usuario que ingrese la funci√≥n:
+fun = input('Ingrese la funci√≥n: ');
 
-% Pedimos los intervalos:
-a = input('Intervalo inferior: ');
-b = input('Intervalo superior: ');
-
-% Pedimos el porcentaje de error:
-error = input('Porcentaje de error: ');
-
-% Pedimos que ingrese el valor de N:
-n = input('Ingrese un valor de N: ');
-
-% AquÌ preguntamos al usuario que mÈtodo quiere aplicar:
+% Aqu√≠ preguntamos al usuario que m√©todo quiere aplicar:
 selection_bool = true;
 fprintf("\n");
 
 while selection_bool
     Selection = ["1."; "2."; "3."; "4."];
-    MethodToApply = ["BisecciÛn"; "Secante"; "Regula Falsi"; "Newton"];
+    MethodToApply = ["Bisecci√≥n"; "Secante"; "Regula Falsi"; "Newton"];
     qstn = table(Selection, MethodToApply);
     disp(qstn);
-    go = input("Introduzca mÈtodo: ");
+    go = input("Introduzca m√©todo: ");
+    fprintf("\n");
     
     switch go
         case 1
-            % MÈtodo de la bisecciÛn:
-            bisection(fun, a, b, error, n)
+            % M√©todo de la bisecci√≥n:
+            fprintf("M√©todo de la bisecci√≥n: \n");
+            
+            % Pedimos los intervalos:
+            a = input('Intervalo inferior: ');
+            b = input('Intervalo superior: ');
+            
+            % Pedimos que ingrese el valor de N:
+            n = input('Ingrese un valor de N: ');
+            
+            % Pedimos el m√°ximo de error absoluto:
+            errorAbsMax = input('Error absoluto m√°ximo: ');
+            
+            bisection(fun, a, b, errorAbsMax, n)
             selection_bool = false;
         
         case 2
-            % MÈtodo de la secante:
-            fprintf("Este mÈtodo no ha sido implementado todavia \n");    
+            % M√©todo de la secante:
+            fprintf("Este m√©todo no ha sido implementado todavia \n");
             selection_bool = false;
         
         case 3
-            % MÈtodo de la Regula Falsi:
+            % M√©todo de la Regula Falsi:
+            % Pedimos los intervalos:
+            a = input('Intervalo inferior: ');
+            b = input('Intervalo superior: ');
+            
+            % Pedimos la tolerancia:
             tol = input('Ingrese el valor de tolerancia: ');
-            regulafalsi(fun, a, b, tol ,error, n)
+            
+            % Pedimos el m√°ximo de error absoluto:
+            errorAbsMax = input('Error absoluto m√°ximo: ');
+            
+            regulafalsi(fun, a, b, tol , errorAbsMax, n)
             selection_bool = false;
-        
+            
         case 4
-            % MÈtodo de Newton:
-            fprintf("Este mÈtodo no ha sido implementado todavia \n");
+            % M√©todo de Newton:
+            fprintf("M√©todo de Newton: \n");
+            a = input('Punto a aproximar: ');
+            newton(fun, a)
             selection_bool = false;
         
         otherwise
-            % Error de selecciÛn
-            fprintf("Error: SelecciÛn fuera de rango \n\n");
+            % Error de selecci√≥n
+            fprintf("Error: Selecci√≥n fuera de rango \n\n");
     end
-    
 end
