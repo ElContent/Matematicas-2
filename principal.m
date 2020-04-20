@@ -53,6 +53,9 @@ while selection_bool
             % Pedimos el máximo de error absoluto:
             errorAbsMax = input('Error absoluto máximo: ');
             
+            % Pedimos que ingrese el valor de N:
+            n = input('Ingrese un valor de N: ');
+            
             regulafalsi(fun, a, b, tol , errorAbsMax, n)
             selection_bool = false;
             
