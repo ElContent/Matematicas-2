@@ -1,4 +1,4 @@
-function bisection(fun, A_var, B_var, e, N)
+function bisection(fun, A_var, B_var, ErAbsMax, N)
 syms x;
 
 Ya = subs(fun, A_var);
@@ -28,7 +28,7 @@ while (inc <= N && continuar == 1)
     Error(inc, 1) = Ea;
     T = table(i, A, C, B, H, Error);
     
-    if Ea < e
+    if Ea < ErAbsMax
         continuar = 0;
     end
     
