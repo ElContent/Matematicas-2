@@ -1,4 +1,4 @@
-function regulafalsi(fun, A_var, B_var, tolerancia, e, N)
+function secante(fun, A_var, B_var, tolerancia, e, N)
 syms x;
 inc = 1;
 
@@ -22,13 +22,10 @@ loop_bool = true;
         funA(inc, 1) = double(subs(fun, A_var));
         funB(inc, 1) = double(subs(fun, B_var));
         funC(inc, 1) = double(subs(fun, c));
-        
-        if (subs(fun, A_var)*subs(fun,c)) < 0
-            B_var = c;
-        else
-            A_var = c;
-        end
 
+        
+        B_var = c;       
+   
         T = table(i, A, B, C, H, funA, funB, funC);
 
         if inc >= N 
