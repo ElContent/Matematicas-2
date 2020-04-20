@@ -11,15 +11,9 @@ loop_bool = true;
             B_var = aux;
         end
 
-        h = (subs(fun, A_var)*(A_var-B_var))/(subs(fun,B_var));
+        h = (subs(fun, A_var)*(B_var-A_var))/(subs(fun,B_var)-subs(fun,A_var));
         c = A_var-h;
         
-        if (subs(fun, A_var)*subs(fun,c)) < 0
-            B_var = c;
-        else
-            A_var = c;
-        end
-
         i(inc, 1) = double(inc);
         A(inc, 1) = double(A_var);
         B(inc, 1) = double(B_var);
@@ -28,6 +22,12 @@ loop_bool = true;
         funA(inc, 1) = double(subs(fun, A_var));
         funB(inc, 1) = double(subs(fun, B_var));
         funC(inc, 1) = double(subs(fun, c));
+        
+        if (subs(fun, A_var)*subs(fun,c)) < 0
+            B_var = c;
+        else
+            A_var = c;
+        end
 
         T = table(i, A, B, C, H, funA, funB, funC);
 
@@ -35,15 +35,16 @@ loop_bool = true;
             loop_bool = false;
             disp(T);
             disp("Número de iteraciones máximo alcanzado.");
-        elseif abs(subs(fun,c)) <= e
-            loop_bool = false;
-            disp(T);
-            disp("El valor absoluto de funC es menor al error e.");
-        elseif abs(h) <= tolerancia
-            loop_bool = false;
-            disp(T);
-            disp("El valor absoluto de h es menor a la tolerancia.");
-            
+        else if abs(subs(fun,c)) <= e
+                loop_bool = false;
+                disp(T);
+                disp("El valor absoluto de funC es menor al error e.");
+            else if abs(h) <= tolerancia
+                    loop_bool = false;
+                    disp(T);
+                    disp("El valor absoluto de h es menor a la tolerancia.");
+                end
+            end 
         end  
         inc = inc + 1;
     end
