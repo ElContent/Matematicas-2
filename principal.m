@@ -31,9 +31,9 @@ while selection_bool
             n = input('Ingrese un valor de N: ');
             
             % Pedimos el porcentaje de error:
-            error = input('Porcentaje de error: ');
+            errorAbsMax = input('Error absoluto máximo: ');
             
-            bisection(fun, a, b, error, n)
+            bisection(fun, a, b, errorAbsMax, n)
             selection_bool = false;
         
         case 2
