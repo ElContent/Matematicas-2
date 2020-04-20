@@ -37,12 +37,12 @@ while selection_bool
             selection_bool = false;
         
         case 2
-            % MÃ©todo de la secante:
+            % Método de la secante:
             fprintf("Este método no ha sido implementado todavía \n");
             selection_bool = false;
         
         case 3
-            % MÃ©todo de la Regula Falsi:
+            % Método de la Regula Falsi:
             % Pedimos los intervalos:
             a = input('Intervalo inferior: ');
             b = input('Intervalo superior: ');
