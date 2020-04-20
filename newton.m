@@ -37,8 +37,8 @@ disp(T);
 fprintf("Total iteraciones: %d \n", i);
 
 if abs(h_var) >= maxVal
-    fprintf('La solución DIVERGE \n');
+    fprintf('La solución DIVERGE \n\n');
 else
-    fprintf('La solución CONVERGE \n');
+    fprintf('La solución CONVERGE \n\n');
 end
 % Fin de la Funcion

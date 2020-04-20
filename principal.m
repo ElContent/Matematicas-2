@@ -7,8 +7,8 @@ syms x y fun;
 fun = input('Ingrese la función: ');
 
 % Pedimos los intervalos:
-a = input('Intervalo inferior: ');
-b = input('Intervalo superior: ');
+a = input('Intervalo inferior (o punto a aproximar): ');
+b = input('Intervalo superior (0 si no se va a usar): ');
 
 % Pedimos el porcentaje de error:
 error = input('Porcentaje de error: ');
@@ -26,10 +26,12 @@ while selection_bool
     qstn = table(Selection, MethodToApply);
     disp(qstn);
     go = input("Introduzca método: ");
+    fprintf("\n");
     
     switch go
         case 1
             % Método de la bisección:
+            fprintf("Método de la bisección: \n");
             bisection(fun, a, b, error, n)
             selection_bool = false;
         
@@ -45,7 +47,8 @@ while selection_bool
         
         case 4
             % Método de Newton:
-            fprintf("Este método no ha sido implementado todavia \n");
+            fprintf("Método de Newton: \n");
+            newton(fun, a)
             selection_bool = false;
         
         otherwise
