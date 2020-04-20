@@ -1,20 +1,10 @@
 % Este el arranque del programa
 clear
 clc
-syms x y fun;
+syms x fun;
 
 % Pedimos al usuario que ingrese la función:
 fun = input('Ingrese la función: ');
-
-% Pedimos los intervalos:
-a = input('Intervalo inferior (o punto a aproximar): ');
-b = input('Intervalo superior (0 si no se va a usar): ');
-
-% Pedimos el porcentaje de error:
-error = input('Porcentaje de error: ');
-
-% Pedimos que ingrese el valor de N:
-n = input('Ingrese un valor de N: ');
 
 % Aquí preguntamos al usuario que método quiere aplicar:
 selection_bool = true;
@@ -32,6 +22,17 @@ while selection_bool
         case 1
             % Método de la bisección:
             fprintf("Método de la bisección: \n");
+            
+            % Pedimos los intervalos:
+            a = input('Intervalo inferior: ');
+            b = input('Intervalo superior: ');
+            
+            % Pedimos que ingrese el valor de N:
+            n = input('Ingrese un valor de N: ');
+            
+            % Pedimos el porcentaje de error:
+            error = input('Porcentaje de error: ');
+            
             bisection(fun, a, b, error, n)
             selection_bool = false;
         
@@ -48,6 +49,7 @@ while selection_bool
         case 4
             % Método de Newton:
             fprintf("Método de Newton: \n");
+            a = input('Punto a aproximar: ');
             newton(fun, a)
             selection_bool = false;
         
