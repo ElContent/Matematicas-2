@@ -1,6 +1,9 @@
 function regulafalsi(fun, A_var, B_var, tolerancia, e, N)
 syms x;
 inc = 1;
+if not(isa(fun,'function_handle'))
+    fun = matlabFunction(fun);
+end
 
 loop_bool = true;
 
@@ -11,19 +14,19 @@ loop_bool = true;
             B_var = aux;
         end
 
-        h = (subs(fun, A_var)*(B_var-A_var))/(subs(fun,B_var)-subs(fun,A_var));
+        h = (fun(A_var)*(B_var-A_var))/(fun(B_var)-fun(A_var));
         c = A_var-h;
         
-        i(inc, 1) = double(inc);
-        A(inc, 1) = double(A_var);
-        B(inc, 1) = double(B_var);
-        C(inc, 1) = double(c);
-        H(inc, 1) = double(h);
-        funA(inc, 1) = double(subs(fun, A_var));
-        funB(inc, 1) = double(subs(fun, B_var));
-        funC(inc, 1) = double(subs(fun, c));
+        i(inc, 1) = inc;
+        A(inc, 1) = A_var;
+        B(inc, 1) = B_var;
+        C(inc, 1) = c;
+        H(inc, 1) = h;
+        funA(inc, 1) = fun(A_var);
+        funB(inc, 1) = fun(B_var);
+        funC(inc, 1) = fun(c);
         
-        if (subs(fun, A_var)*subs(fun,c)) < 0
+        if (fun(A_var)*fun(c)) < 0
             B_var = c;
         else
             A_var = c;
@@ -35,11 +38,11 @@ loop_bool = true;
             loop_bool = false;
             disp(T);
             disp("Número de iteraciones máximo alcanzado.");
-        elseif abs(subs(fun,c)) >= e
+        elseif abs(subs(fun,c)) <= e
             loop_bool = false;
             disp(T);
             disp("El valor absoluto de funC es menor al error e.");
-        elseif abs(h) >= tolerancia
+        elseif abs(h) <= tolerancia
             loop_bool = false;
             disp(T);
             disp("El valor absoluto de h es menor a la tolerancia.");
