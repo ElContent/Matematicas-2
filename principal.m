@@ -38,7 +38,18 @@ while selection_bool
         
         case 2
             % Método de la secante:
-            fprintf("Este método no ha sido implementado todavía \n");
+            % Pedimos los intervalos:
+            a = input('Intervalo inferior: ');
+            b = input('Intervalo superior: ');
+            
+            % Pedimos que ingrese el valor de N:
+            n = input('Ingrese un valor de N: ');
+            
+            tol = input('Ingrese el valor de la tolerancia: ');
+            
+            error = input('Ingrese error: ');
+            
+            secante(fun, a, b, tol, error, n);
             selection_bool = false;
         
         case 3

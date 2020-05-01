@@ -23,26 +23,25 @@ loop_bool = true;
         funB(inc, 1) = double(subs(fun, B_var));
         funC(inc, 1) = double(subs(fun, c));
 
-        
         B_var = c;       
-   
+        fprintf("Antes de table \n");
         T = table(i, A, B, C, H, funA, funB, funC);
+        fprintf("Después de table \n");
 
-        if inc >= N 
+        if inc > N 
             loop_bool = false;
             disp(T);
             disp("Número de iteraciones máximo alcanzado.");
-        else if abs(subs(fun,c)) <= e
-                loop_bool = false;
-                disp(T);
-                disp("El valor absoluto de funC es menor al error e.");
-            else if abs(h) <= tolerancia
-                    loop_bool = false;
-                    disp(T);
-                    disp("El valor absoluto de h es menor a la tolerancia.");
-                end
-            end 
+        elseif abs(subs(fun,c)) < e
+            loop_bool = false;
+            disp(T);
+            disp("El valor absoluto de funC es menor al error e.");
+        elseif abs(h) < tolerancia
+            loop_bool = false;
+            disp(T);
+            disp("El valor absoluto de h es menor a la tolerancia.");
         end  
+        disp(inc);
         inc = inc + 1;
     end
 end
