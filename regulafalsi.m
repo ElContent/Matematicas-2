@@ -35,16 +35,14 @@ loop_bool = true;
             loop_bool = false;
             disp(T);
             disp("Número de iteraciones máximo alcanzado.");
-        else if abs(subs(fun,c)) <= e
-                loop_bool = false;
-                disp(T);
-                disp("El valor absoluto de funC es menor al error e.");
-            else if abs(h) <= tolerancia
-                    loop_bool = false;
-                    disp(T);
-                    disp("El valor absoluto de h es menor a la tolerancia.");
-                end
-            end 
+        elseif abs(subs(fun,c)) >= e
+            loop_bool = false;
+            disp(T);
+            disp("El valor absoluto de funC es menor al error e.");
+        elseif abs(h) >= tolerancia
+            loop_bool = false;
+            disp(T);
+            disp("El valor absoluto de h es menor a la tolerancia.");
         end  
         inc = inc + 1;
     end
