@@ -1,12 +1,18 @@
 function newtonBis(fun, A_var, e, tol, N)
 syms x;
-
 der = diff(fun);
+if not(isa(fun,'function_handle'))
+    fun = matlabFunction(fun);
+end
+if not(isa(der,'function_handle'))
+    der = matlabFunction(der);
+end
+
 inc = 0;
-whileOut = true;
-while whileOut == false
+whileContinue = true;
+while whileContinue == true
     inc = inc + 1;
-    H_var = subs(fun, A_var) / subs(der, A_var);
+    H_var = fun(A_var) / der(A_var);
     C_var = A_var - H_var;
     
     % Preparando la tabla:
@@ -14,21 +20,21 @@ while whileOut == false
     A(inc, 1) = A_var;
     H(inc, 1) = H_var;
     C(inc, 1) = C_var;
-    Fc(inc, 1) = subs(fun, C_var);
+    Fc(inc, 1) = fun(C_var);
     
     A_var = C_var;
     
     % Condiciones de salida
     if inc >= N
-        whileOut = false;
+        whileContinue = false;
         salida = 0;
     end
     if abs(H_var) <= tol
-        whileOut = false;
+        whileContinue = false;
         salida = 1;
     end
-    if abs(subs(fun, C_var)) <= e
-        whileOut = false;
+    if abs(fun(C_var)) <= e
+        whileContinue = false;
         salida = 2;
     end
     
