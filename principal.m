@@ -3,6 +3,10 @@ clear
 clc
 syms x fun;
 
+% Cabecera:
+fprintf("### Calculadora de ecuaciones por distintos métodos ### \n");
+fprintf("Enginyeria Informàtica - Universitat d'Alacant - Grup en Valencià \n\n");
+
 % Pedimos al usuario que ingrese la función:
 fun = input('Ingrese la función: ');
 
@@ -70,7 +74,7 @@ while selection_bool
             % Pedimos la tolerancia:
             tol = input('Ingrese el valor de tolerancia: ');
             
-            % Pedimos el mÃ¡ximo de error absoluto:
+            % Pedimos el máximo de error absoluto:
             errorAbsMax = input('Error absoluto máximo: ');
             
             % Pedimos que ingrese el valor de N:
@@ -86,7 +90,16 @@ while selection_bool
             % Pedimos el punto al que vamos a aproximar:
             a = input('Punto a aproximar: ');
             
-            newton(fun, a)
+            % Pedimos la tolerancia:
+            tol = input('Ingrese el valor de tolerancia: ');
+            
+            % Pedimos el máximo de error absoluto:
+            errorAbsMax = input('Error absoluto máximo: ');
+            
+            % Pedimos que ingrese el valor de N:
+            n = input('Ingrese un valor de N: ');
+            
+            newton(fun, a, errorAbsMax, tol, n)
             selection_bool = false;
             
         case 5
