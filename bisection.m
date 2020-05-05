@@ -1,4 +1,4 @@
-function biseccion(fun, A_var, B_var, e, tol, N)
+function bisection(fun, A_var, B_var, e, tol, N)
 syms x;
 
 inc = 0;
