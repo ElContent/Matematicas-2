@@ -3,25 +3,25 @@ clear
 clc
 syms x fun;
 
-% Pedimos al usuario que ingrese la funci√≥n:
-fun = input('Ingrese la funci√≥n: ');
+% Pedimos al usuario que ingrese la funciÛn:
+fun = input('Ingrese la funciÛn: ');
 
-% Aqu√≠ preguntamos al usuario que m√©todo quiere aplicar:
+% AquÌ preguntamos al usuario que mÈtodo quiere aplicar:
 selection_bool = true;
 fprintf("\n");
 
 while selection_bool
     Selection = ["1."; "2."; "3."; "4."; "5."];
-    MethodToApply = ["Bisecci√≥n"; "Secante"; "Regula Falsi"; "Newton"; "Steffenson"];
+    MethodToApply = ["BisecciÛn"; "Secante"; "Regula-Falsi"; "Newton"; "Steffenson"];
     qstn = table(Selection, MethodToApply);
     disp(qstn);
-    go = input("Introduzca m√©todo: ");
+    go = input("Introduzca mÈtodo: ");
     fprintf("\n");
     
     switch go
         case 1
-            % M√©todo de la bisecci√≥n:
-            fprintf("M√©todo de la bisecci√≥n: \n");
+            % MÈtodo de la bisecciÛn:
+            fprintf("MÈtodo de la bisecciÛn: \n");
             
             % Pedimos los intervalos:
             a = input('Intervalo inferior: ');
@@ -30,14 +30,19 @@ while selection_bool
             % Pedimos que ingrese el valor de N:
             n = input('Ingrese un valor de N: ');
             
-            % Pedimos el m√°ximo de error absoluto:
-            errorAbsMax = input('Error absoluto m√°ximo: ');
+            % Pedimos la tolerancia:
+            tol = input('Ingrese la tolerancia: ');
             
-            bisection(fun, a, b, errorAbsMax, n)
+            % Pedimos el m·ximo de error absoluto:
+            errorAbsMax = input('Error absoluto m·ximo: ');
+            
+            bisection(fun, a, b, errorAbsMax, tol, n)
             selection_bool = false;
         
         case 2
-            % M√©todo de la secante:
+            % MÈtodo de la secante:
+            fprintf("MÈtodo de la secante: \n");
+            
             % Pedimos los intervalos:
             a = input('Intervalo inferior: ');
             b = input('Intervalo superior: ');
@@ -45,15 +50,19 @@ while selection_bool
             % Pedimos que ingrese el valor de N:
             n = input('Ingrese un valor de N: ');
             
+            % Pedimos el valor de la tolerancia
             tol = input('Ingrese el valor de la tolerancia: ');
             
+            % Pedimos el valor del error absoluto m·ximo
             error = input('Ingrese error: ');
             
             secante(fun, a, b, tol, error, n);
             selection_bool = false;
         
         case 3
-            % M√©todo de la Regula Falsi:
+            % MÈtodo de la Regula-Falsi:
+            fprintf("MÈtodo de la Regula-Falsi \n");
+            
             % Pedimos los intervalos:
             a = input('Intervalo inferior: ');
             b = input('Intervalo superior: ');
@@ -62,7 +71,7 @@ while selection_bool
             tol = input('Ingrese el valor de tolerancia: ');
             
             % Pedimos el m√°ximo de error absoluto:
-            errorAbsMax = input('Error absoluto m√°ximo: ');
+            errorAbsMax = input('Error absoluto m·ximo: ');
             
             % Pedimos que ingrese el valor de N:
             n = input('Ingrese un valor de N: ');
@@ -71,24 +80,33 @@ while selection_bool
             selection_bool = false;
             
         case 4
-            % M√©todo de Newton:
-            fprintf("M√©todo de Newton: \n");
+            % MÈtodo de Newton:
+            fprintf("MÈtodo de Newton: \n");
+            
+            % Pedimos el punto al que vamos a aproximar:
             a = input('Punto a aproximar: ');
+            
             newton(fun, a)
             selection_bool = false;
             
         case 5
-            % M√©todo de Steffensen
-            fprintf("M√©todo de Steffensen: \n");
+            % MÈtodo de Steffenson
+            fprintf("MÈtodo de Steffenson: \n");
+            
+            % Pedimos el punto inicial:
             x0 = input('Punto inicial: ');
-            tol = input('Tolerancia (Error m√°ximo): ');
-            nmax = input('N√∫mero m√°ximo de iteraciones: ');
+            
+            % Pedimos la tolerancia
+            tol = input('Tolerancia (Error m·ximo): ');
+            
+            % Pedimos el n˙mero m·ximo de iteraciones:
+            nmax = input('N˙mero m·ximo de iteraciones: ');
             
             steffensen(x0,fun,tol,nmax);
             selection_bool = false;
         
         otherwise
-            % Error de selecci√≥n
-            fprintf("Error: Selecci√≥n fuera de rango \n\n");
+            % Error de selecciÛn
+            fprintf("Error: SelecciÛn fuera de rango \n\n");
     end
 end
