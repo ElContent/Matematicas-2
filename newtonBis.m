@@ -52,5 +52,11 @@ switch salida
         fprintf("Salida por sobrepaso del error \n");
 end
 
+if abs(H_var) >= tol
+    fprintf('La solución DIVERGE \n\n');
+else
+    fprintf('La solución CONVERGE \n\n');
+end
+
 end
 
