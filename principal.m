@@ -102,7 +102,7 @@ while selection_bool
             % Pedimos el número máximo de iteraciones:
             nmax = input('Número máximo de iteraciones: ');
             
-            steffensen(x0,fun,tol,nmax);
+            steffensen(x0, fun, tol, nmax);
             selection_bool = false;
         
         otherwise
