@@ -1,4 +1,4 @@
-function metodoNewton(fun, A_var, e, tol, N)
+function newtonBis(fun, A_var, e, tol, N)
 syms x;
 
 der = diff(fun);
@@ -8,7 +8,6 @@ while whileOut == false
     inc = inc + 1;
     H_var = subs(fun, A_var) / subs(der, A_var);
     C_var = A_var - H_var;
-    A_var = C_var;
     
     % Preparando la tabla:
     i(inc, 1) = inc;
@@ -16,6 +15,8 @@ while whileOut == false
     H(inc, 1) = H_var;
     C(inc, 1) = C_var;
     Fc(inc, 1) = subs(fun, C_var);
+    
+    A_var = C_var;
     
     % Condiciones de salida
     if inc >= N
