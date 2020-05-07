@@ -7,7 +7,7 @@ la consola de MatLab.
 ¡Qué aproveche!
 
 La programación la hemos llevado a cabo:
- - Jordi (principal.m y bisection.m)
+ - Jordi (principal.m, bisection.m, newton.m y puntoFijo.m)
  - Fran (regulafalsi.m y secante.m)
  - Josué (steffensen.m)
  
