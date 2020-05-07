@@ -15,8 +15,8 @@ selection_bool = true;
 fprintf("\n");
 
 while selection_bool
-    Selection = ["1."; "2."; "3."; "4."; "5."];
-    MethodToApply = ["Bisección"; "Secante"; "Regula-Falsi"; "Newton"; "Steffenson"];
+    Selection = ["1."; "2."; "3."; "4."; "5."; "6."];
+    MethodToApply = ["Bisección"; "Secante"; "Regula-Falsi"; "Newton"; "Steffenson"; "Punto Fijo"];
     qstn = table(Selection, MethodToApply);
     disp(qstn);
     go = input("Introduzca método: ");
@@ -116,6 +116,25 @@ while selection_bool
             nmax = input('Número máximo de iteraciones: ');
             
             steffensen(x0, fun, tol, nmax);
+            selection_bool = false;
+            
+        case 6
+            % Método del Punto Fijo:
+            fprintf("Método del Punto Fijo");
+            
+            % Pedimos el punto inicial:
+            A = input("Introduce el punto inicial: ");
+            
+            % Pedimos la tolerancia:
+            tol = input("Introduce la cota de la tolerancia: ");
+            
+            % Pedimos el error:
+            err = input("Introduce la cota del error en la función: ");
+            
+            % Pedimos el valor de N: 
+            N = input("Introduce la cota de iteraciones: ");
+            
+            puntoFijo(fun, A, tol, err, N);
             selection_bool = false;
         
         otherwise
