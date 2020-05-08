@@ -15,5 +15,6 @@ NOTAS DE LA VERSIÓN:
  - V1.2: Se añade puntoFijo.m
  - V1.3: Se añade pfijoGradiente.m
  - V1.4: Arreglos variados
+ - V1.5: Corregido un fallo en el gradiente
 
     
