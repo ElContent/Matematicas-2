@@ -1,44 +1,62 @@
-function newton(fun, A_var)
-% Algoritmo Newton-Raphson
-% Calculamos la derivada:
+function newton(fun, A_var, e, tol, N)
+syms x;
 der = diff(fun);
-
-% Definimos el error:
-error = 1.e-5;
-
-% Definimos el valor para la divergencia:
-maxVal = 10000.0;
-
-% Preparamos el bucle:
-i = 0;
-while_out = false;
-while (i <= 100 && while_out == false)
-    i = i + 1;
-    h_var = subs(fun, A_var) / subs(der, A_var);
-    C_var = A_var - h_var;
-    
-    % Condición de parada:
-    if (abs(h_var) >= maxVal || abs(subs(fun, C_var)) < error)
-        while_out = true;
-    end
-    
-    % Preparamos la tabla:
-    inc(i, 1) = i;
-    A(i, 1) = double(A_var);
-    h(i, 1) = double(h_var);
-    C(i, 1) = double(C_var);
-    funInC(i, 1) = double(subs(fun, C_var));
-    T = table(inc, A, h, C, funInC);
-    
-    A_var = C_var;
+if not(isa(fun,'function_handle'))
+    fun = matlabFunction(fun);
+end
+if not(isa(der,'function_handle'))
+    der = matlabFunction(der);
 end
 
-disp(T);
-fprintf("Total iteraciones: %d \n", i);
+inc = 0;
+whileContinue = true;
+while whileContinue == true
+    inc = inc + 1;
+    H_var = fun(A_var) / der(A_var);
+    C_var = A_var - H_var;
+    
+    % Preparando la tabla:
+    i(inc, 1) = inc;
+    A(inc, 1) = A_var;
+    H(inc, 1) = H_var;
+    C(inc, 1) = C_var;
+    Func(inc, 1) = fun(C_var);
+    
+    A_var = C_var;
+    
+    % Condiciones de salida
+    if inc >= N
+        whileContinue = false;
+        salida = 0;
+    end
+    if abs(H_var) <= tol
+        whileContinue = false;
+        salida = 1;
+    end
+    if abs(fun(C_var)) <= e
+        whileContinue = false;
+        salida = 2;
+    end
+    
+end
 
-if abs(h_var) >= maxVal
+T = table(i, A, H, C, Func);
+disp(T);
+
+switch salida
+    case 0
+        fprintf("Salida porque i ha llegado al límite. \n");
+    case 1
+        fprintf("Salida porque la tolerancia (H) es menor a la introducida. \n");
+    case 2
+        fprintf("Salida por sobrepaso del error Fun(c). \n");
+end
+
+if abs(H_var) >= tol
     fprintf('La solución DIVERGE \n\n');
 else
     fprintf('La solución CONVERGE \n\n');
 end
-% Fin de la Funcion
+
+end
+

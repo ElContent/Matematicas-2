@@ -1,53 +1,54 @@
-function bisection(fun, A_var, B_var, ErAbsMax, N)
+function bisection(fun, A_var, B_var, e, tol, N)
 syms x;
 
-Ya = subs(fun, A_var);
-Yb = subs(fun, B_var);
-
-if(Ya*Yb)>0
-    fprintf('\n\n No existe raiz en el intervalo [Xa, Xb] \n\n');
-    fprintf('Ingrese un nuevo intervalo o una nueva función');
-end
-
-fprintf('\n\n');
-Xant = 0;
-inc = 1;
-continuar = 1;
-
-while (inc <= N && continuar == 1)
-    C_var = (A_var+B_var)/2;
-    Xact = C_var;
-    Yr = subs(fun, C_var);
-    Ea = abs((Xact-Xant)/Xact) * 100;
-    
-    i(inc, 1) = inc;
-    A(inc, 1) = A_var;
-    B(inc, 1) = B_var;
-    C(inc, 1) = C_var;
-    H(inc, 1) = (B_var - A_var)/2;
-    Error(inc, 1) = Ea;
-    T = table(i, A, C, B, H, Error);
-    
-    if Ea < ErAbsMax
-        continuar = 0;
-    end
-    
-    if(Ya * Yr) < 0
+inc = 0;
+whileOut = false;
+H_var = abs(B_var - A_var);
+while whileOut == false
+    inc = inc + 1;
+    C_var = (A_var + B_var) / 2;
+    H_var = H_var / 2;
+    if subs(fun, A_var) * subs(fun, C_var) < 0
         B_var = C_var;
-    elseif (Ya * Yr) == 0
-        continuar = 0;
     else
         A_var = C_var;
     end
     
-    Xant = C_var;
-    inc = inc + 1;
+    % Formando la tabla:
+    i(inc, 1) = inc;
+    A(inc, 1) = A_var;
+    B(inc, 1) = B_var;
+    C(inc, 1) = C_var;
+    H(inc, 1) = H_var;
+    FunC(inc,1) = fun(C_var);
     
+    % Condiciones de salida:
+    if inc >= N
+        whileOut = true;
+        salida = 0;
+    end
+    if H_var <= tol
+        whileOut = true;
+        salida = 1;
+    end
+    if abs(subs(fun, C_var)) <= e
+        whileOut = true;
+        salida = 2;
+    end
 end
 
-disp(T)
-fprintf("Raíz exacta: %d \n", C_var);
-fprintf("Número de iteraciones: %d \n", inc - 1);
+fprintf("\n");
+T = table(i, A, C, B, H, FunC);
+disp(T);
+
+switch salida
+    case 0
+        fprintf("Salida porque i ha llegado al límite. \n");
+    case 1
+        fprintf("Salida porque la tolerancia (H) es menor a la introducida. \n");
+    case 2
+        fprintf("Salida por sobrepaso del error Fun(c). \n");
+end
 
 end
 
