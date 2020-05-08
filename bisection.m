@@ -36,6 +36,7 @@ while whileOut == false
     end
 end
 
+
 T = table(i, A, C, B, H);
 disp(T);
 

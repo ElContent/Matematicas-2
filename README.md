@@ -7,7 +7,12 @@ la consola de MatLab.
 ¡Qué aproveche!
 
 La programación la hemos llevado a cabo:
- - Jordi (principal.m, bisection.m, newton.m y puntoFijo.m)
+ - Jordi (principal.m, bisection.m, newton.m, puntoFijo.m y pfijoGradiente.m)
  - Fran (regulafalsi.m y secante.m)
  - Josué (steffensen.m)
  
+NOTAS DE LA VERSIÓN:
+ - V1.2: Se añade puntoFijo.m
+ - V1.3: Se añade pfijoGradiente.m
+
+    
