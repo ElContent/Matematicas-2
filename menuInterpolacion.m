@@ -23,7 +23,7 @@ while selection_bool
         
         case 2
             % La Grange:
-            fprintf("Encara no s'ha implementat \n");
+            web('https://www.youtube.com/watch?v=Vppbdf-qtGU');
             selection_bool = false;
             
         otherwise
