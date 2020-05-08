@@ -32,7 +32,7 @@ while whileControl == true
     Modulo(inc + 1, 1) = sqrt(A_res^2 + B_res^2);
     
     A_var = A_var - gamma * derX(A_var, B_var);
-    B_var = B_var - gamma * derY(A_var, B_var);
+    B_var = B_var - gamma * derY(A(inc + 1), B_var);
     
     % Criterios de parada:
     if inc == N
