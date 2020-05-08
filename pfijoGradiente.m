@@ -39,11 +39,11 @@ while whileControl == true
         salida = 0;
         whileControl = false;
     end
-    if sqrt((A_var - A(inc + 1))^2 + (B_var - B(inc + 1))) < e
+    if sqrt(A_var^2 + B_var^2) == 0
         salida = 1;
         whileControl = false;
     end
-    if abs(A_var - A(inc + 1)) < e
+    if sqrt((A_var - A(inc + 1))^2 + (B_var - B(inc + 1))) < e
         salida = 2;
         whileControl = false;
     end
@@ -59,9 +59,10 @@ switch salida
     case 0
         fprintf("Salida por llegar al límite introducido \n");
     case 1
-        fprintf("Salida porque el gradiente se aproxima mucho a 0 en X \n");
+        fprintf("Salida porque el módulo de la próxima iteración \n");
+        fprintf("se aproxima mucho a 0 \n");
     case 2
-        fprintf("Salida por sobrepaso del error \n");
+        fprintf("Salida por sobrepaso de la cota de error \n");
 end
 
 

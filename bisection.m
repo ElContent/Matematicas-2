@@ -36,7 +36,7 @@ while whileOut == false
     end
 end
 
-
+fprintf("\n");
 T = table(i, A, C, B, H);
 disp(T);
 
