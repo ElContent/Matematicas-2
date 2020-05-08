@@ -45,7 +45,7 @@ disp(T);
 
 switch salida
     case 0
-        fprintf("Salida porque i ha llegado al límite. \n");
+        fprintf("Salida porque i ha llegado al lÃ­mite. \n");
     case 1
         fprintf("Salida porque la tolerancia (H) es menor a la introducida. \n");
     case 2
@@ -53,9 +53,9 @@ switch salida
 end
 
 if abs(H_var) >= tol
-    fprintf('La solución DIVERGE \n\n');
+    fprintf('La soluciÃ³n DIVERGE \n\n');
 else
-    fprintf('La solución CONVERGE \n\n');
+    fprintf('La soluciÃ³n CONVERGE \n\n');
 end
 
 end

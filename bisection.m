@@ -43,7 +43,7 @@ disp(T);
 
 switch salida
     case 0
-        fprintf("Salida porque i ha llegado al límite. \n");
+        fprintf("Salida porque i ha llegado al lÃ­mite. \n");
     case 1
         fprintf("Salida porque la tolerancia (H) es menor a la introducida. \n");
     case 2
