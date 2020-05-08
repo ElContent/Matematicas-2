@@ -1,4 +1,4 @@
-% Este el arranque del programa
+% Menú Ecuaciones
 clear
 clc
 syms x y fun;
