@@ -20,6 +20,7 @@ while whileOut == false
     B(inc, 1) = B_var;
     C(inc, 1) = C_var;
     H(inc, 1) = H_var;
+    FunC(inc,1) = fun(C_var);
     
     % Condiciones de salida:
     if inc >= N
@@ -37,16 +38,16 @@ while whileOut == false
 end
 
 fprintf("\n");
-T = table(i, A, C, B, H);
+T = table(i, A, C, B, H, FunC);
 disp(T);
 
 switch salida
     case 0
-        fprintf("Salida por llegar al límite introducido \n");
+        fprintf("Salida porque i ha llegado al lÃ­mite. \n");
     case 1
-        fprintf("Salida por sobrepaso de tolerancia \n");
+        fprintf("Salida porque la tolerancia (H) es menor a la introducida. \n");
     case 2
-        fprintf("Salida por sobrepaso del error \n");
+        fprintf("Salida por sobrepaso del error Fun(c). \n");
 end
 
 end

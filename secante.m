@@ -22,18 +22,16 @@ loop_bool = true;
         B(inc, 1) = B_var;
         C(inc, 1) = c;
         H(inc, 1) = h;
-        funA(inc, 1) = fun(A_var);
-        funB(inc, 1) = fun(B_var);
         funC(inc, 1) = fun(c);
 
         B_var = c;       
         
-        T = table(i, A, B, C, H, funA, funB, funC);
+        T = table(i, A, B, H, C, funC);
 
         if inc >= N 
             loop_bool = false;
             disp(T);
-            disp("Número de iteraciones máximo alcanzado.");
+            disp("NÃºmero de iteraciones mÃ¡ximo alcanzado.");
         elseif abs(subs(fun,c)) <= e
             loop_bool = false;
             disp(T);
