@@ -31,7 +31,7 @@ loop_bool = true;
         if inc >= N 
             loop_bool = false;
             disp(T);
-            disp("NÃºmero de iteraciones mÃ¡ximo alcanzado.");
+            disp("Número máximo de iteraciones alcanzado.");
         elseif abs(subs(fun,c)) <= e
             loop_bool = false;
             disp(T);
