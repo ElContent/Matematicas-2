@@ -9,8 +9,8 @@ fprintf("Enginyeria Informàtica - Universitat d'Alacant - Grup en Valencià \n\n"
 selection_bool = true;
 while selection_bool
     Referencia = ["1."; "2."];
-    Contenido = ["Lagrange"; "La Grange"];
-    qstn = table(Referencia, Contenido);
+    Metode = ["Lagrange"; "La Grange"];
+    qstn = table(Referencia, Metode);
     disp(qstn);
     go = input("Introduzca la referencia del contenido a ejecutar: ");
     fprintf("\n");
