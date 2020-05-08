@@ -1,7 +1,7 @@
 % Este el arranque del programa
 clear
 clc
-syms x fun;
+syms x y fun;
 
 % Cabecera:
 fprintf("### Calculadora de ecuaciones por distintos métodos ### \n");
@@ -15,8 +15,9 @@ selection_bool = true;
 fprintf("\n");
 
 while selection_bool
-    Selection = ["1."; "2."; "3."; "4."; "5."; "6."];
-    MethodToApply = ["Bisección"; "Secante"; "Regula-Falsi"; "Newton"; "Steffenson"; "Punto Fijo"];
+    Selection = ["1."; "2."; "3."; "4."; "5."; "6."; "7."];
+    MethodToApply = ["Bisección"; "Secante"; "Regula-Falsi";...
+        "Newton"; "Steffenson"; "Punto Fijo"; "Punto Fijo del Gradiente"];
     qstn = table(Selection, MethodToApply);
     disp(qstn);
     go = input("Introduzca método: ");
@@ -120,7 +121,7 @@ while selection_bool
             
         case 6
             % Método del Punto Fijo:
-            fprintf("Método del Punto Fijo");
+            fprintf("Método del Punto Fijo: \n");
             
             % Pedimos el punto inicial:
             A = input("Introduce el punto inicial: ");
@@ -135,6 +136,28 @@ while selection_bool
             N = input("Introduce la cota de iteraciones: ");
             
             puntoFijo(fun, A, tol, err, N);
+            selection_bool = false;
+            
+        case 7
+            % Método del Punto Fijo del Grandiente:
+            fprintf("Método del Punto Fijo del Gradiente: \n");
+            
+            % Pedimos la primera coordenada del punto:
+            A = input("Introduce la primera coordenada: ");
+            
+            % Pedimos la segunda coordenada del punto:
+            B = input("Introduce la segunda coordenada: ");
+            
+            % Pedimos gamma:
+            gamma = input("Introduce el valor de gamma: ");
+            
+            % Pedimos el error:
+            e = input("Introduce la cota del error en la función: ");
+            
+            % Pedimos el valor de N:
+            N = input("Introduce la cota de iteraciones: ");
+            
+            pfijoGradiente(fun, gamma, A, B, e, N);
             selection_bool = false;
         
         otherwise
