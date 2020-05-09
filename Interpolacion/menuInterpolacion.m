@@ -44,7 +44,11 @@ while selection_bool
             
         case 6
             % Newton
-            fprintf("Encara no s'ha implementat \n");
+            x = input('Introduce el vector x: ');
+            y = input('Introduce el vector y: ');
+            xi = input('Introduce un punto para sustituir en el polnomio: ');
+            
+            [Iteraciones, Polinomio, yi]=iNewton(x, y, xi)
             selection_bool = false;
         
         case 7
