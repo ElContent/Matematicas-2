@@ -1,10 +1,10 @@
-% Este el arranque del programa
+% Menú Ecuaciones
 clear
 clc
 syms x y fun;
 
 % Cabecera:
-fprintf("### Calculadora de ecuaciones por distintos métodos ### \n");
+fprintf("### Calculadora d'equacions per distints mètodes ### \n");
 fprintf("Enginyeria Informàtica - Universitat d'Alacant - Grup en Valencià \n\n");
 
 % Pedimos al usuario que ingrese la función:

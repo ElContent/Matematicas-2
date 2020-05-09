@@ -16,5 +16,7 @@ NOTAS DE LA VERSIÓN:
  - V1.3: Se añade pfijoGradiente.m
  - V1.4: Arreglos variados
  - V1.5: Corregido un fallo en el gradiente
+ - V1.6: Fran ha aclarado unas cosillas de bisection, newton, secante y regulafalsi
+
 
     
