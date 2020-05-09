@@ -25,12 +25,18 @@ while selection_bool
     switch go
         case 1
             % Resolución de Ecuaciones:
+            oldpath = path;
+            path(oldpath, 'Ecuaciones');
             run('menuEcuaciones')
+            path(oldpath);
             selection_bool = false;
         
         case 2
             % Interpolación:
+            oldpath = path;
+            path(oldpath, 'Interpolacion');
             run('menuInterpolacion')
+            path(oldpath);
             selection_bool = false;
             
         otherwise
