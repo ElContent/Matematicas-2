@@ -19,6 +19,8 @@ while selection_bool
     switch go
         case 1
             % Lagrange:
+            [YPOINT, XPOINT, X] = vectorino();
+            lagrange(X,XPOINT, YPOINT);
             fprintf("Encara no s'ha implementat \n");
             selection_bool = false;
             
