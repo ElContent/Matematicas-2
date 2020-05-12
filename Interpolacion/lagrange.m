@@ -1,10 +1,10 @@
 function lagrange(X, POINTX, POINTY)
 longi = true;
 
-if length(POINTX)~= length(POINTY)
-    disp('Vectores de tamaños distintos');
-    longi = false;
-end
+%if length(POINTX)~= length(POINTY)
+ %   disp('Vectores de tamaños distintos');
+  %  longi = false;
+%end
 
 if longi == true
     a = polyfit(POINTX, POINTY, length(POINTX)-1);
@@ -13,7 +13,7 @@ if longi == true
     
     yp = polyval(a,xp);
     
-    plot(x,y,'o',xp,yp,'-');
+    plot(POINTX,POINTY,'o',xp,yp,'-');
     
 end
 end
