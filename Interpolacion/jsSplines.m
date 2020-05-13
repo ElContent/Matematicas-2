@@ -19,4 +19,6 @@ function jsSplines(fun, V)
     plot(xx, yy, xx, ys, 'k-');
     
 
+    %% Queda pendiente revisar lo del [2,1]
+    %% Hace falta saber qué es. Esperaré a la explicación del profesor
 end
