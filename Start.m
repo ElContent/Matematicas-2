@@ -31,10 +31,10 @@ while selection_bool
         
         case 2
             % Interpolación:
-            oldpath = path;
-            path(oldpath, 'Interpolacion');
+            oldPath = path;
+            path(oldPath, 'Interpolacion');
             run('menuInterpolacion')
-            path(oldpath);
+            path(oldPath);
             selection_bool = false;
             
         otherwise
