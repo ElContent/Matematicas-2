@@ -41,7 +41,15 @@ while selection_bool
             
         case 5
             % Splines
-            fprintf("Encara no s'ha implementat \n");
+            % Pedimos la función:
+            fun = input("Introduce la función: \n");
+            
+            % Pedimos un vector:
+            Vec = input("Introduce un vector: \n");
+            
+            % Llamada a la función:
+            jsSplines(fun, Vec);
+            
             selection_bool = false;
             
         case 6

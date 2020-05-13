@@ -7,11 +7,9 @@ clc
 fprintf("Programa de càlcul per a M2 \n");
 fprintf("Enginyeria Informàtica - Universitat d'Alacant - Grup en Valencià \n\n");
 
-fprintf("De la programació: \n");
-Programador = ["Jordi"; "Fran"; "Josué"];
-Codi = ["Start, menuEcuaciones, menuInterpolacion, bisection, newton, pfijoGradiente, puntoFijo";...
-    "regulafalsi i secante";...
-    "steffensen"];
+fprintf("De la programació s'han encarregat: \n");
+programadors = ["Jordi"; "Fran"; "Josué"];
+disp(programadors);
 
 selection_bool = true;
 while selection_bool
