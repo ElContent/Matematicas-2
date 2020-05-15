@@ -10,7 +10,9 @@ else
     aprox = polyval(poli,X);
     
     plot(POINTX,POINTY,'o',X,aprox,'-');
-    xlim([1 4]);
-    ylim([1.5 5.5]);
 end
+
+disp('El grado del polinomio es: ');
+disp(n-1);
+disp(poli);
 end
