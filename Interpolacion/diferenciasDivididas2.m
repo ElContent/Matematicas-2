@@ -33,8 +33,17 @@ for i = 1:N
     end
 end
 
-
-
+% Creando la tabla (Resto de cabeceras -> Usando unaDD() para sacar valores)
+for i = 1:length(V) % Esto son las veces que meteremos valores
+    nombreCabecera = "[" + coma + "]";
+    for j = 1:N
+        if mod(i, 2) ~= 0
+            if
+        else
+            
+        end
+    
+end
 
 
 
