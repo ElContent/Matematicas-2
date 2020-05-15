@@ -15,32 +15,40 @@ N = 2*length(V) - 1;
 itV = 1;
 for i = 1:N
     if mod(i, 2) ~= 0
-        tabla.Xi(i) = string(V(itV));
+        Xi(i, 1) = string(V(itV));
         itV = itV + 1;
     else
-        tabla.Xi(i) = "";
+        Xi(i, 1) = "";
     end
 end
 
-% Creando la tabla (Resto de cabeceras -> Usando unaDD() para sacar valores)
-for i = 1:length(V) % Esto son las veces que meteremos valores
-    nombreCabecera = nombreCabeceraDD(i);
-    for j = 1:N
-        if mod(i, 2) ~= 0
-            
-        else
-            
-        end
-    
+% f[Xi]:
+itV = 1;
+nombreCabecera = nombreCabeceraDD(1);
+for i = 1:N
+    if mod(i, 2) ~= 0
+        Fxi(i, 1) = string(fun(V(itV)));
+        itV = itV + 1;
+    else
+        Fxi(i, 1) = "";
+    end
+end
+
+% f[,,]:
+itV = 1;
+nombreCabecera = nombreCabeceraDD(2);
+Fxi2(1,1) = "";
+for i = 2:N
+    if mod(i, 2) == 0
+        Fxi2(i, 1) = unaDD(fun, V, itV);
+        itV = itV + 1;
+    else
+        Fxi2(i, 1) = "";
+    end
 end
 
 
-
-disp(tabla);
-
-tablaFinal = struct2table(tabla);
-disp(tablaFinal);
-% tabla.(nombreCabecera) = 
-
+T = table(Xi, Fxi, Fxi2);
+disp(T);
 
 end
