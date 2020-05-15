@@ -26,14 +26,22 @@ nombreCabecera = "[" + coma + "]";
 itV = 1;
 for i = 1:N
     if mod(i, 2) ~= 0
-        tabla.Xi(i) = V(itV);
+        tabla.Xi(i) = string(V(itV));
         itV = itV + 1;
     else
-        tabla.Xi(i) = "[]";
+        tabla.Xi(i) = "";
     end
 end
 
+
+
+
+
+
 disp(tabla);
+
+tablaFinal = struct2table(tabla);
+disp(tablaFinal);
 % tabla.(nombreCabecera) = 
 
 
