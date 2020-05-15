@@ -8,6 +8,6 @@ for i = 1:Col
         coma = "";
     end %endif
 end %endfor
-nombreCabecera = "[" + coma + "]";
+nombreCabecera = "f[" + coma + "]";
 end
 
