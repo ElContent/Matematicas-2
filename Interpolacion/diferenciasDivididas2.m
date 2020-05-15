@@ -21,10 +21,20 @@ for i = 1:length(V)
 end %endfor
 nombreCabecera = "[" + coma + "]";
 
-i = 1;
-% Creando la tabla:
-tabla.cabecera = "Xi";
-tabla.col1 = 
+
+% Creando la tabla (Primera Cabecera -> Valores Vector):
+itV = 1;
+for i = 1:N
+    if mod(i, 2) ~= 0
+        tabla.Xi(i) = V(itV);
+        itV = itV + 1;
+    else
+        tabla.Xi(i) = "[]";
+    end
+end
+
+disp(tabla);
+% tabla.(nombreCabecera) = 
 
 
 end
