@@ -11,17 +11,6 @@ end
 
 N = 2*length(V) - 1;
 
-% Nombre de la cabecera:
-for i = 1:length(V)
-    if i >= 2
-        coma = coma + ",";
-    else
-        coma = "";
-    end %endif
-end %endfor
-nombreCabecera = "[" + coma + "]";
-
-
 % Creando la tabla (Primera Cabecera -> Valores Vector):
 itV = 1;
 for i = 1:N
@@ -35,10 +24,10 @@ end
 
 % Creando la tabla (Resto de cabeceras -> Usando unaDD() para sacar valores)
 for i = 1:length(V) % Esto son las veces que meteremos valores
-    nombreCabecera = "[" + coma + "]";
+    nombreCabecera = nombreCabeceraDD(i);
     for j = 1:N
         if mod(i, 2) ~= 0
-            if
+            
         else
             
         end
