@@ -47,7 +47,55 @@ disp(M);
 
 % SEGUNDA PARTE
 % El polinomio
+xa = V;
+ya = Y;
+for w = 1:length(V) + 1
+    ds = num2str(abs(D(1, w)));
+    % Los valores numéricos de la matriz ds en las coordenadas (1,w)
+    % se transforman en string, cuyos valores no serán modificados después,
+    % y serán mostrados al final en la presentación de resultados.
+    if w > 1
+        if V(w - 1) < 0 
+            % Si la multiplicación de x por (w-1) es menor a cero, 
+            % se agrega un símbolo + al polinomio resultado.
+            sg1 = '+';
+        else    % En caso contrario, el símbolo será -
+            sg1 = '-';
+        end
+    end
 
+    if D(1, w) < 0
+        sg2='-';
+    else
+        sg2='+';
+    end
+
+    if w == 1
+        acum = num2str(D(1, 2));
+        %se crea un contador de nombre acum que irá almacenando
+        % el polinomio obtenido, y lo mostrará el final
+    elseif w == 2
+        polinact = ['(x' sg1 num2str(abs(V(w - 1))) ')' ];
+        actual = [ds '*' polinact];
+        acum = [acum sg2 actual];
+    else
+        polinact = [polinact '.*' '(x' sg1 num2str(abs(V(w - 1))) ')' ];
+        actual = [ds '*' polinact];
+        acum = [acum sg2 actual];
+    end
+    
+end
+
+% Presentacion de resultados
+fprintf('Los valores de X e Y son: \n');
+fprintf('\tX = ');
+disp(xa);
+fprintf('\tY = ');
+disp(ya);
+
+fprintf('El polinomio interpolación obtenido es: \n');
+fprintf('%s ', acum);
+fprintf('\n');
 
 end
 
