@@ -7,9 +7,9 @@ la consola de MatLab.
 ¡Qué aproveche!
 
 La programación la hemos llevado a cabo:
- - Jordi (principal.m, bisection.m, newton.m, puntoFijo.m y pfijoGradiente.m)
- - Fran (regulafalsi.m y secante.m)
- - Josué (steffensen.m)
+ - Jordi (Start.m, menuEcuaciones.m, menuInterpolación.m, bisection.m, newton.m, puntoFijo.m, pfijoGradiente.m, jsSplines y difDiv.m)
+ - Fran (regulafalsi.m, secante.m, lagrange.m y vectorino.m)
+ - Josué (steffensen.m, iNewton.m)
  
 NOTAS DE LA VERSIÓN:
  - V1.2: Se añade puntoFijo.m
