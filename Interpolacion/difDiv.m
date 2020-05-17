@@ -1,4 +1,4 @@
-function dd4(fun, V, imprimirSucio)
+function difDiv(fun, V, imprimirSucio)
 
 syms x;
 if not(isa(fun,'function_handle'))
