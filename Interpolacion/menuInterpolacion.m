@@ -19,9 +19,8 @@ while selection_bool
     switch go
         case 1
             % Lagrange:
-            [YPOINT, XPOINT, X] = vectorino();
+            [X, XPOINT, YPOINT] = vectorino();
             lagrange(X,XPOINT, YPOINT);
-            
             selection_bool = false;
             
         case 2
@@ -31,28 +30,7 @@ while selection_bool
             
         case 3
             % Diferencias Divididas
-            syms x;
-            fun = input('Introduce la función: ');
-            
-            % Creando el vector:
-            V = input('Introduce un vector (recuerda usar corchetes): ');
-            
-            % Llamada a la función:
-            fprintf("¿Quieres imprimir la matriz sucia? \n");
-            control = false;
-            while control == false
-                booleano = input('Responde y o n: ');
-                if booleano == 'y'
-                    difDiv(fun, V, true);
-                    control = true;
-                end
-                if booleano == 'n'
-                    difDiv(fun, V, false);
-                    control = true;
-                end
-                fprintf("\n");
-            end
-            
+            fprintf("Encara no s'ha implementat \n");
             selection_bool = false;
             
         case 4
@@ -75,12 +53,11 @@ while selection_bool
             
         case 6
             % Newton
-            x = input('Introduce el vector x: ');
-            y = input('Introduce el vector y: ');
+            x = input('Introduce el vector x: ([1, 2, 3,... n]): ');
+            y = input('Introduce el vector y: ([1, 2, 3,... n]): ');
             xi = input('Introduce un punto para sustituir en el polnomio: ');
             
-            [Iteraciones, Polinomio, yi] = iNewton(x, y, xi)
-            
+            [Iteraciones, Polinomio, yi]=iNewton(x, y, xi)
             selection_bool = false;
         
         case 7

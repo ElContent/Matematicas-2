@@ -1,19 +1,18 @@
-function lagrange(X, POINTX, POINTY)
-longi = true;
-
-%if length(POINTX)~= length(POINTY)
- %   disp('Vectores de tamaños distintos');
-  %  longi = false;
-%end
-
-if longi == true
-    a = polyfit(POINTX, POINTY, length(POINTX)-1);
+function poli = lagrange(X, POINTX, POINTY)
+n=size(POINTX,2);
+n2=size(POINTY,2);
+if n~=n2
+   disp('Vectores de tamaños distintos');
+   poli = NaN;
+else
+    poli = polyfit(POINTX, POINTY, n-1);
     
-    xp = X;
+    aprox = polyval(poli,X);
     
-    yp = polyval(a,xp);
-    
-    plot(POINTX,POINTY,'o',xp,yp,'-');
-    
+    plot(POINTX,POINTY,'o',X,aprox,'-');
 end
+
+disp('El grado del polinomio es: ');
+disp(n-1);
+disp(poli);
 end
