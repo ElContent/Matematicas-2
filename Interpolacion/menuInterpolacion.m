@@ -79,7 +79,8 @@ while selection_bool
             y = input('Introduce el vector y: ');
             xi = input('Introduce un punto para sustituir en el polnomio: ');
             
-            [Iteraciones, Polinomio, yi]=iNewton(x, y, xi)
+            [Iteraciones, Polinomio, yi] = iNewton(x, y, xi)
+            
             selection_bool = false;
         
         case 7

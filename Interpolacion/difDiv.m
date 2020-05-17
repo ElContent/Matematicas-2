@@ -5,6 +5,8 @@ if not(isa(fun,'function_handle'))
     fun = matlabFunction(fun);
 end
 
+% PRIMERA PARTE:
+% La tabla de las diferencias divididas
 Y = fun(V);
 D = zeros(length(V), length(Y) + 1);
 D(:, 1) = V';
@@ -41,8 +43,10 @@ end
 if imprimirSucio == true 
     disp(D);
 end
-
 disp(M);
+
+% SEGUNDA PARTE
+% El polinomio
 
 
 end
