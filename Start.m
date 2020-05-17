@@ -20,25 +20,21 @@ while selection_bool
     go = input("Introduzca la referencia del contenido a ejecutar: ");
     fprintf("\n");
     
+    addpath('Ecuaciones', 'Interpolacion');
     switch go
         case 1
             % Resolución de Ecuaciones:
-            oldpath = path;
-            path(oldpath, 'Ecuaciones');
             run('menuEcuaciones')
-            path(oldpath);
             selection_bool = false;
         
         case 2
             % Interpolación:
-            oldPath = path;
-            path(oldPath, 'Interpolacion');
             run('menuInterpolacion')
-            path(oldPath);
             selection_bool = false;
             
         otherwise
             % Error de selección:
             fprintf("Error: Selección fuera de rango \n\n");
     end
+    restoredefaultpath;
 end
