@@ -41,7 +41,7 @@ while selection_bool
             fprintf("¿Quieres imprimir la matriz sucia? \n");
             control = false;
             while control == false
-                booleano = input('Responde y o n: ');
+                booleano = input('Responde y o n (entre comillas): ');
                 if booleano == 'y'
                     difDiv(fun, V, true);
                     control = true;
@@ -57,7 +57,7 @@ while selection_bool
             
         case 4
             % Hermite
-            fprintf("Encara no s'ha implementat \n");
+            fprintf("No està al menú, però hi ha uns arxius que poden ser útils \n");
             selection_bool = false;
             
         case 5
