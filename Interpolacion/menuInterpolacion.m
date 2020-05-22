@@ -32,7 +32,27 @@ while selection_bool
             
         case 3
             % Diferencias Divididas
-            fprintf("Encara no s'ha implementat \n");
+            fun = input('Introduce la función: ');
+            
+            % Creando el vector:
+            V = input('Introduce un vector (recuerda usar corchetes): ');
+            
+            % Llamada a la función:
+            fprintf("¿Quieres imprimir la matriz sucia? \n");
+            control = false;
+            while control == false
+                booleano = input('Responde y o n: ');
+                if booleano == 'y'
+                    difDiv(fun, V, true);
+                    control = true;
+                end
+                if booleano == 'n'
+                    difDiv(fun, V, false);
+                    control = true;
+                end
+                fprintf("\n");
+            end
+            
             selection_bool = false;
             
         case 4
