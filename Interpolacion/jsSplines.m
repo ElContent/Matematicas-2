@@ -12,13 +12,10 @@ function jsSplines(fun, V)
     A = spline(V, fun_valores); % Cálculo del spline
     C = A.coefs(3, :);  % Coeficientes de la función cúbica
     xx = linspace(-1, 10); % Dominio
-    yy = polyval(C, xx, [], [2,1]); % Evaluamos el polinomio. OJO con el [2,1]
+    %yy = polyval(C, xx, [], [1,2]); % Evaluamos el polinomio. OJO con el [2,1]
+    yy = polyval(C, xx); 
     ys = ppval(A, xx); % Evaluamos el spline
     
     % Dibujando el spline cúbico:
     plot(xx, yy, xx, ys, 'k-');
-    
-
-    %% Queda pendiente revisar lo del [2,1]
-    %% Hace falta saber qué es. Esperaré a la explicación del profesor
 end

@@ -6,6 +6,8 @@ clc
 fprintf("### Calculadora d'interpolació per distints mètodes ### \n");
 fprintf("Enginyeria Informàtica - Universitat d'Alacant - Grup en Valencià \n\n");
 
+syms x;
+
 selection_bool = true;
 while selection_bool
     Referencia = ["1."; "2."; "3."; "4."; "5."; "6."; "7."];
@@ -41,10 +43,10 @@ while selection_bool
         case 5
             % Splines
             % Pedimos la función:
-            fun = input("Introduce la función: \n");
+            fun = input("Introduce la función: ");
             
             % Pedimos un vector:
-            Vec = input("Introduce un vector: \n");
+            Vec = input("Introduce un vector: ");
             
             % Llamada a la función:
             jsSplines(fun, Vec);
